@@ -3,7 +3,7 @@ name: CI Build for shark app
 on:
   push:
     branches:
-      - develop
+      - master
 
 jobs:
   build:
@@ -29,10 +29,10 @@ jobs:
       - name: Docker Push
         run: docker push khaliq123/sharkapp:latest
 
-      - name: Sign in to Droplet and execute commands
+      - name: Sign in to EC2 and execute commands
         uses: appleboy/ssh-action@master
         with:
-          host: ${{secrets.DROPLET_HOST}}
+          host: ${{secrets.SERVER_ADDRESS}}
           username: root
           key: ${{secrets.SSH_PRIVATE_KEY}}
           envs: GITHUB_SHA
