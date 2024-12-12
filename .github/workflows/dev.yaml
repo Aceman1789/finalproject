@@ -37,13 +37,13 @@ jobs:
           key: ${{secrets.SSH_PRIVATE_KEY}}
           envs: GITHUB_SHA
           script: |
-            docker login -u ${{ secrets.DOCKER_USER }} -p ${{ secrets.DOCKER_PASSWORD }} 
-            docker stop sharkapp
-            docker rm sharkapp
-            docker rmi khaliq123/sharkapp
-            docker pull khaliq123/sharkapp
+            sudo docker login -u ${{ secrets.DOCKER_USER }} -p ${{ secrets.DOCKER_PASSWORD }} 
+            sudo docker stop sharkapp
+            sudo docker rm sharkapp
+            sudo docker rmi khaliq123/sharkapp
+            sudo docker pull khaliq123/sharkapp
            
-            docker run -d \
+            sudo docker run -d \
             -p 8080:8080 \
             --restart always \
             --name sharkapp \
