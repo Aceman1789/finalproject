@@ -45,7 +45,6 @@ jobs:
            
             docker run -d \
             -p 3000:3000 \
-
             --restart always \
             --name sharkapp \
             khaliq123/sharkapp:latest
