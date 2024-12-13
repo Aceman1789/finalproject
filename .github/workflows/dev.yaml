@@ -24,10 +24,10 @@ jobs:
         run: |
           docker build \
             --file Dockerfile \
-            --tag khaliq123/sharkapp:latest .
+            --tag aceman1789/sharkapp:latest .
                      
       - name: Docker Push
-        run: docker push khaliq123/sharkapp:latest
+        run: docker push aceman1789/sharkapp:latest
 
       - name: Sign in to EC2 and execute commands
         uses: appleboy/ssh-action@master
@@ -40,11 +40,11 @@ jobs:
             docker login -u ${{ secrets.DOCKER_USER }} -p ${{ secrets.DOCKER_PASSWORD }} 
             docker stop sharkapp
             docker rm sharkapp
-            docker rmi khaliq123/sharkapp
-            docker pull khaliq123/sharkapp
+            docker rmi aceman1789/sharkapp
+            docker pull aceman1789/sharkapp
            
             docker run -d \
             -p 3000:3000 \
             --restart always \
             --name sharkapp \
-            khaliq123/sharkapp:latest
+            aceman1789/sharkapp:latest
