@@ -22,5 +22,5 @@ app.use(express.static(path));
 app.use('/', router);
 
 app.listen(port, function () {
-  console.log('app listening on port 3000!')
+  console.log('app listening on the port 3000!')
 })
